@@ -1,6 +1,6 @@
 GMImagePicker.Xamarin
 =====================
-[![NuGet package](https://buildstats.info/nuget/NET-iOS.GMImagePicker?includePreReleases=false)](https://www.nuget.org/packages/NET-iOS.GMImagePicker/)
+[![NuGet package]](https://www.nuget.org/packages/NET-iOS.GMImagePicker/)
 
 An image & video picker supporting multiple selection and several customizations. Powered by the iOS 8 **Photo framework**.
 
