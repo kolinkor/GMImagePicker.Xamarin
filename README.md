@@ -1,7 +1,6 @@
 GMImagePicker.Xamarin
 =====================
-[![Build status](https://roycornelissen.visualstudio.com/GMImagePicker.Xamarin/_apis/build/status/2?branch=master)](https://roycornelissen.visualstudio.com/GMImagePicker.Xamarin/_build/latest?definitionId=2&branch=master)
-[![NuGet package](https://buildstats.info/nuget/GMImagePicker.Xamarin?includePreReleases=false)](https://www.nuget.org/packages/GMImagePicker.Xamarin/)
+[![NuGet package](https://buildstats.info/nuget/NET-iOS.GMImagePicker?includePreReleases=false)](https://www.nuget.org/packages/NET-iOS.GMImagePicker/)
 
 An image & video picker supporting multiple selection and several customizations. Powered by the iOS 8 **Photo framework**.
 
@@ -40,7 +39,7 @@ Clone or download solution and use GMImagePicker.Xamarin csproj in your solution
 ###### Nuget 
 Get GMImagePicker.Xamarin package from Nuget and add it to your iOS application project.
 ````
-Install-Package GMImagePicker.Xamarin
+Install-Package NET-iOS.GMImagePicker
 ````
 
 #### Initialize the picker, hook up events and present it
