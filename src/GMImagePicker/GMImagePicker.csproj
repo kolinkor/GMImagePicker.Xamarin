@@ -4,6 +4,18 @@
     <SupportedOSPlatformVersion>11.0</SupportedOSPlatformVersion>
     <Nullable>enable</Nullable>
     <ImplicitUsings>true</ImplicitUsings>
+
+    <!-- Nuget package -->
+    <PackageId>NET-iOS.GMImagePicker</PackageId>
+    <Version>2.5.1</Version>
+    <Authors>kolinkor</Authors>
+    <Title>GMImagePicker</Title>
+    <PackageProjectUrl>https://github.com/kolinkor/GMImagePicker.Xamarin</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Description>GMImagePicker binding for Net 7.0 iOS</Description>
+    <PackageReleaseNotes>GMImagePicker binding for Net 7.0 iOS</PackageReleaseNotes>
+    <PackageTags>xamarin ios GMImagePicker</PackageTags>
+    
   </PropertyGroup>
   
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
