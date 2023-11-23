@@ -179,7 +179,7 @@ namespace GMImagePicker
             }
 
 			if (_picker.UseCustomFontForNavigationBar) {
-				var barButtonItemAttributes = new UITextAttributes {
+				var barButtonItemAttributes = new UIStringAttributes {
 					Font = FontParser.GetFont(_picker.PickerFontName, _picker.PickerFontHeaderSize)
 				};
 				NavigationItem.RightBarButtonItem.SetTitleTextAttributes (barButtonItemAttributes, UIControlState.Normal);

@@ -663,18 +663,18 @@ namespace GMImagePicker
 
 			// UI Customization
 			PickerBackgroundColor = UIColor.White;
-			PickerTextColor = UIColor.DarkTextColor;
+			PickerTextColor = UIColor.DarkText;
 			PickerFontName = UIFont.SystemFontOfSize (14.0f).Name;
 			PickerBoldFontName = UIFont.BoldSystemFontOfSize(17.0f).Name;
 			PickerFontNormalSize = 14.0f;
 			PickerFontHeaderSize = 17.0f;
-			CameraButtonTintColor = UIColor.DarkTextColor;
+			CameraButtonTintColor = UIColor.DarkText;
 
-			NavigationBarTextColor = UIColor.DarkTextColor;
-			NavigationBarTintColor = UIColor.DarkTextColor;
+			NavigationBarTextColor = UIColor.DarkText;
+			NavigationBarTintColor = UIColor.DarkText;
 
-			ToolbarTextColor = UIColor.DarkTextColor;
-			ToolbarTintColor = UIColor.DarkTextColor;
+			ToolbarTextColor = UIColor.DarkText;
+			ToolbarTintColor = UIColor.DarkText;
 
 			PickerStatusBarStyle = UIStatusBarStyle.Default;
 
@@ -759,7 +759,7 @@ namespace GMImagePicker
 		/// </summary>
 		public async Task<bool> EnsureHasCameraAccess()
 		{
-			var status = AVCaptureDevice.GetAuthorizationStatus (AVMediaType.Video);
+			var status = AVCaptureDevice.GetAuthorizationStatus (AVAuthorizationMediaType.Video);
 
 			if (status == AVAuthorizationStatus.Denied) {
 				var alert = UIAlertController.Create (CustomCameraAccessDeniedErrorTitle ?? "picker.camera-access-denied.title".Translate (),
@@ -772,7 +772,7 @@ namespace GMImagePicker
 				await PresentViewControllerAsync (alert, true);
 				return false;
 			} else if (status == AVAuthorizationStatus.NotDetermined) {
-				return await AVCaptureDevice.RequestAccessForMediaTypeAsync (AVMediaType.Video) && 
+				return await AVCaptureDevice.RequestAccessForMediaTypeAsync (AVAuthorizationMediaType.Video) &&
 					await EnsureHasPhotosPermission ();
 			}
 
@@ -913,11 +913,11 @@ namespace GMImagePicker
 			}
 		}
 
-		private UITextAttributes ToolbarTitleTextAttributes 
+		private UIStringAttributes ToolbarTitleTextAttributes
 		{
 			get {
-				return new UITextAttributes {
-					TextColor = ToolbarTextColor,
+				return new UIStringAttributes {
+					ForegroundColor = ToolbarTextColor,
 					Font = FontParser.GetFont (PickerFontName, PickerFontHeaderSize)
 				};
 			}

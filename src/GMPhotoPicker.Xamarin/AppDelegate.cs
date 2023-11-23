@@ -21,11 +21,6 @@ namespace GMPhotoPicker.Xamarin
 			// Override point for customization after application launch.
 			// If not required for your application you can safely delete this method
 
-			// Code to start the Xamarin Test Cloud Agent
-			#if ENABLE_TEST_CLOUD
-			Calabash.Start();
-			#endif
-
 			return true;
 		}
 
