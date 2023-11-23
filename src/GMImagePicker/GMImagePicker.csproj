@@ -1,35 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\NuGet.Build.Packaging.0.2.2\build\NuGet.Build.Packaging.props" Condition="Exists('..\packages\NuGet.Build.Packaging.0.2.2\build\NuGet.Build.Packaging.props')" />
-  <Import Project="..\..\samples\packages\NuGet.Build.Packaging.0.1.276\build\NuGet.Build.Packaging.props" Condition="Exists('..\..\samples\packages\NuGet.Build.Packaging.0.1.276\build\NuGet.Build.Packaging.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <ProjectGuid>{85DD427F-E5E4-462F-9EEA-E869369996E3}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>GMImagePicker</RootNamespace>
-    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>GMImagePicker.Xamarin</AssemblyName>
-    <PackOnBuild>true</PackOnBuild>
-    <PackageId>GMImagePicker.Xamarin</PackageId>
-    <PackageVersion>999.999.999</PackageVersion>
-    <Authors>Roy Cornelissen</Authors>
-    <RepositoryUrl>https://github.com/roycornelissen/GMImagePicker.Xamarin.git</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
-    <PackageIconUrl>https://raw.githubusercontent.com/roycornelissen/GMImagePicker.Xamarin/master/GMImagePickerIcon.png</PackageIconUrl>
-    <PackageLicenseUrl>https://raw.githubusercontent.com/roycornelissen/GMImagePicker.Xamarin/master/LICENSE</PackageLicenseUrl>
-    <Owners>Roy Cornelissen</Owners>
-    <PackageProjectUrl>https://github.com/roycornelissen/GMImagePicker.Xamarin</PackageProjectUrl>
-    <PackageReleaseNotes>[2.5.1]
-- #40 Updated French translations. Merci @osc117!
-- #80 Fix for endless recursion crash when using custom fonts</PackageReleaseNotes>
-    <Summary>Select multiple images and/or videos from the iOS gallery and camera. Uses iOS PhotoKit API's for optimal efficiency.</Summary>
-    <PackageTags>photos, images, image picker, ios, GMImagePicker, xamarin, plugin, xamarin.ios</PackageTags>
-    <Title>GMImagePicker for Xamarin.iOS</Title>
-    <Description>Xamarin.iOS port of the original GMImagePicker component by Guillermo Muntaner Perelló</Description>
-    <ReleaseVersion>2.2.2</ReleaseVersion>
+    <TargetFramework>net7.0-ios</TargetFramework>
+    <SupportedOSPlatformVersion>11.0</SupportedOSPlatformVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
+  
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
@@ -51,56 +27,4 @@
     <DocumentationFile>bin\Release\GMImagePicker.Xamarin.XML</DocumentationFile>
     <MtouchLink>SdkOnly</MtouchLink>
   </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Core" />
-    <Reference Include="Xamarin.iOS" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="zh-Hans.lproj\GMImagePicker.strings" />
-    <BundleResource Include="Resources\GMEmptyFolder.png" />
-    <BundleResource Include="Resources\GMEmptyFolder%403x.png" />
-    <BundleResource Include="Resources\GMSelected%403x.png" />
-    <BundleResource Include="Resources\GMVideoIcon%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="GMAlbumsViewCell.cs" />
-    <Compile Include="GMGridViewCell.cs" />
-    <Compile Include="GMGridViewController.cs" />
-    <Compile Include="GMImagePickerController.cs" />
-    <Compile Include="Events.cs" />
-    <Compile Include="GMAlbumsViewController.cs" />
-    <Compile Include="TranslationExtensions.cs" />
-    <Compile Include="FontParser.cs" />
-  </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
-  <ItemGroup>
-    <BundleResource Include="Resources\GMEmptyFolder%402x.png" />
-    <BundleResource Include="Resources\GMSelected.png" />
-    <BundleResource Include="Resources\GMSelected%402x.png" />
-    <BundleResource Include="Resources\GMVideoIcon.png" />
-    <BundleResource Include="Resources\GMVideoIcon%402x.png" />
-    <BundleResource Include="Base.lproj\GMImagePicker.strings" />
-    <BundleResource Include="ca.lproj\GMImagePicker.strings" />
-    <BundleResource Include="de.lproj\GMImagePicker.strings" />
-    <BundleResource Include="en.lproj\GMImagePicker.strings" />
-    <BundleResource Include="es.lproj\GMImagePicker.strings" />
-    <BundleResource Include="fr.lproj\GMImagePicker.strings" />
-    <BundleResource Include="it.lproj\GMImagePicker.strings" />
-    <BundleResource Include="pt.lproj\GMImagePicker.strings" />
-    <BundleResource Include="nl.lproj\GMImagePicker.strings" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="ru.lproj\GMImagePicker.strings" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="pl.lproj\GMImagePicker.strings" />
-    <None Include="packages.config" />
-    <BundleResource Include="nb.lproj\GMImagePicker.strings" />
-    <BundleResource Include="sv.lproj\GMImagePicker.strings" />
-  </ItemGroup>
-  <Import Project="..\..\samples\packages\NuGet.Build.Packaging.0.1.276\build\NuGet.Build.Packaging.targets" Condition="Exists('..\..\samples\packages\NuGet.Build.Packaging.0.1.276\build\NuGet.Build.Packaging.targets')" />
-  <Import Project="..\packages\NuGet.Build.Packaging.0.2.2\build\NuGet.Build.Packaging.targets" Condition="Exists('..\packages\NuGet.Build.Packaging.0.2.2\build\NuGet.Build.Packaging.targets')" />
 </Project>

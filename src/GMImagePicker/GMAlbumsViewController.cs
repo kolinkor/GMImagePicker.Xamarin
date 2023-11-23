@@ -119,7 +119,7 @@ namespace GMImagePicker
 			TableView.SeparatorStyle = UITableViewCellSeparatorStyle.None;
 
 			// Buttons
-			var barButtonItemAttributes = new UITextAttributes
+			var barButtonItemAttributes = new UIStringAttributes
 			{
 				Font = FontParser.GetFont(_picker.PickerFontName, _picker.PickerFontHeaderSize)
 			};
