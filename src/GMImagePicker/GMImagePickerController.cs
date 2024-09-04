@@ -15,7 +15,6 @@ using System.Collections.Generic;
 using MobileCoreServices;
 using System.Linq;
 using Foundation;
-using AssetsLibrary;
 using System.Threading.Tasks;
 using AVFoundation;
 using System.Diagnostics;
@@ -521,21 +520,27 @@ namespace GMImagePicker
 				}
                 else if (mediaType == UTType.Movie)
 				{
-				    NSUrl videoPathUrl = (NSUrl)info.ObjectForKey(UIImagePickerController.MediaURL);
-                    ALAssetsLibrary lib = new ALAssetsLibrary();
-				    lib.WriteVideoToSavedPhotosAlbum(videoPathUrl, (url, error) => {                    
-				        if (error != null)
-				        {                            
-				            var alert = UIAlertController.Create("picker.camera.video-not-saved.title".Translate(defaultValue: "Video Not Saved"),
-                                "picker.camera.video-not-saved.message".Translate(defaultValue: "Sorry, unable to save the new video!"),
-				                UIAlertControllerStyle.Alert);
+					NSUrl videoPathUrl = (NSUrl)info.ObjectForKey(UIImagePickerController.MediaURL);
+					PHPhotoLibrary.SharedPhotoLibrary.PerformChanges(() =>
+						{
+							PHAssetCreationRequest.FromVideo(videoPathUrl);
+						}, 
+						(success, error) =>
+						{
+							if (true)
+							{
+								var alert = UIAlertController.Create(
+									"picker.camera.video-not-saved.title".Translate(defaultValue: "Video Not Saved"),
+									"picker.camera.video-not-saved.message".Translate(defaultValue: "Sorry, unable to save the new video!"),
+									UIAlertControllerStyle.Alert);
 
-				            alert.AddAction(UIAlertAction.Create("picker.action.ok".Translate(defaultValue: "OK"), UIAlertActionStyle.Default, null));
-				            _parent.PresentViewController(alert, true, null);
-                        }
+								alert.AddAction(UIAlertAction.Create(
+									"picker.action.ok".Translate(defaultValue: "OK"), 
+									UIAlertActionStyle.Default, null));
 
-                        // Note: The image view will auto refresh as the photo's are being observed in the other VCs
-                    });
+								_parent.PresentViewController(alert, true, null);
+							}
+						});
 				}
             }
 
@@ -784,9 +789,9 @@ namespace GMImagePicker
 		/// </summary>
 		public async Task<bool> EnsureHasPhotosPermission()
 		{
-			var status = ALAssetsLibrary.AuthorizationStatus;
+			var status = PHPhotoLibrary.AuthorizationStatus;
 
-			if (status == ALAuthorizationStatus.Denied) {
+			if (status == PHAuthorizationStatus.Denied) {
 				var alert = UIAlertController.Create (CustomPhotosAccessDeniedErrorTitle ?? "picker.photo-access-denied.title".Translate (),
 					            CustomPhotosAccessDeniedErrorMessage ?? "picker.photo-access-denied.message".Translate (),
 					            UIAlertControllerStyle.Alert);
