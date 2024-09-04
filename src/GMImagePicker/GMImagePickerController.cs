@@ -7,15 +7,8 @@
 //  https://github.com/guillermomuntaner/GMImagePicker
 //
 
-using System;
-using UIKit;
 using Photos;
-using CoreGraphics;
-using System.Collections.Generic;
 using MobileCoreServices;
-using System.Linq;
-using Foundation;
-using System.Threading.Tasks;
 using AVFoundation;
 using System.Diagnostics;
 

@@ -7,14 +7,14 @@
 
     <!-- Nuget package -->
     <PackageId>NET-iOS.GMImagePicker</PackageId>
-    <Version>2.5.1</Version>
+    <Version>2.5.2</Version>
     <Authors>kolinkor</Authors>
     <Title>GMImagePicker</Title>
     <PackageProjectUrl>https://github.com/kolinkor/GMImagePicker.Xamarin</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Description>GMImagePicker binding for Net 7.0 iOS</Description>
-    <PackageReleaseNotes>GMImagePicker binding for Net 7.0 iOS</PackageReleaseNotes>
-    <PackageTags>xamarin ios GMImagePicker</PackageTags>
+    <Description>GMImagePicker binding for Net 8.0 iOS</Description>
+    <PackageReleaseNotes>GMImagePicker binding for Net 8.0 iOS</PackageReleaseNotes>
+    <PackageTags>NET ios GMImagePicker</PackageTags>
     
   </PropertyGroup>
   
